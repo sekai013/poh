@@ -36,7 +36,7 @@ def evaluate(hash)
 	ANSWER.each_key do |key|
 		if hash[key] == ANSWER[key]
 			next
-		else
+		elsif key != :*
 			0.upto 1 do |n|
 				manhattan_distance += (ANSWER[key][n] - hash[key][n]).abs
 			end
@@ -101,4 +101,5 @@ loop {
 	hashes = next_hashes(hash)
 	hash   = select_hash(hashes)
 	break if evaluate(hash) == 0
+	sleep 3
 }
